@@ -1,0 +1,9 @@
+.cards {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+  .item {
+    width: 33%;
+    margin-right: 12px;
+  }
+}
