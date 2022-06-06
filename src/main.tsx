@@ -9,29 +9,30 @@ import { Search } from './Search/search'
 
 const { Header, Footer, Sider, Content } = Layout;
 
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-          <BrowserRouter>
+    <BrowserRouter>
 
-    <Layout className={styles.appContainer}>
-      <Header className={styles.header}>Header</Header>
+      <Layout className={styles.appContainer}>
+        <Header className={styles.header}>Header</Header>
 
-      <Layout>
-        <Sider>
-          <Link className={styles.siderLink} to='/s'>search</Link>
-          <Link className={styles.siderLink} to='/'>compare</Link>
-        </Sider>
-        
-        <Content>
+        <Layout>
+          <Sider>
+            <Link className={styles.siderLink} to='/s'>search</Link>
+            <Link className={styles.siderLink} to='/'>compare</Link>
+          </Sider>
+
+          <Content>
             <Routes>
               <Route index element={<CompareTable />}></Route>
               <Route path='/s' element={<Search />}></Route>
             </Routes>
-        </Content>
-      </Layout>
+          </Content>
+        </Layout>
 
-      <Footer>Footer</Footer>
-    </Layout>
+        <Footer>Footer</Footer>
+      </Layout>
     </BrowserRouter>
 
   </React.StrictMode>
