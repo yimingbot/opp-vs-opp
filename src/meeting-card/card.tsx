@@ -4,12 +4,13 @@ import Typewriter from 'typewriter-effect/dist/core';
 import styles from './card.module.scss'
 import { UserOutlined } from '@ant-design/icons';
 import { mockData } from "../mock-data";
-
+import classNames from 'classnames';
 
 interface ICardProps {
   data: typeof mockData['agenda'][number];
+  className?: string;
 }
-export function AgendaCard({ data }: ICardProps) {
+export function AgendaCard({ data, className }: ICardProps) {
   console.log(data);
   
   const { dealTermComputed } = data;
@@ -28,7 +29,7 @@ export function AgendaCard({ data }: ICardProps) {
     setIsModalVisible(true)
   }, [])
 
-  return <Card ref={cardRef} title='公司名称' className={styles.wrapper}>
+  return <Card ref={cardRef} title='公司名称' className={classNames(className, styles.wrapper)}>
     <p className={styles.title}>上会信息</p>
     <div className={styles.info}>
       <div>项目阶段: <span className={styles.text}>{data.meetingDecisionStatus}</span></div>
