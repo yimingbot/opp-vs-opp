@@ -1,0 +1,35 @@
+.root {
+  display: flex;
+  .timeline {
+    width: 30vw;
+    margin: 0 0 0 30px;
+    .icon {
+      width: 30px;
+      height: 30px;
+      box-shadow: 0 0 0 4px #0f0, inset 0 2px 0 rgb(0 0 0 / 8%), 0 3px 0 4px rgb(0 0 0 / 5%);
+    }
+  }
+
+  .agendaList {
+    width: 70vw;
+    margin-left: 30px;
+    .agendaItem {
+      margin-top: 28px;
+    }
+  }
+}
+:global {
+  .vertical-timeline-element {
+    margin-left: 50px;
+  }
+  .vertical-timeline-element-content {
+    background: rgba(0,0,0,.7);
+    border: 1px solid  rgba(0, 255, 0, .7);
+    color: #0f0;
+    box-shadow: none;
+  }
+  .vertical-timeline-element-content-arrow {
+    border-right-color: #000;
+  }
+}
+

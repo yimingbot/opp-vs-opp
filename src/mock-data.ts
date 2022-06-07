@@ -143,3 +143,5 @@ export const mockData = {
     }
   ]
 }
+
+export type MeetingData = typeof mockData;

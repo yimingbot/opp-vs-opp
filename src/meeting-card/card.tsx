@@ -1,5 +1,5 @@
 import { Card, Button, Modal, Avatar } from "antd";
-import { useCallback, useLayoutEffect, useRef, useState } from "react";
+import { CSSProperties, useCallback, useLayoutEffect, useRef, useState } from "react";
 import Typewriter from 'typewriter-effect/dist/core';
 import styles from './card.module.scss'
 import { UserOutlined } from '@ant-design/icons';
@@ -9,10 +9,11 @@ import classNames from 'classnames';
 interface ICardProps {
   data: typeof mockData['agenda'][number];
   className?: string;
+  rootStyle?: CSSProperties
 }
-export function AgendaCard({ data, className }: ICardProps) {
+export function AgendaCard({ data, className, rootStyle }: ICardProps) {
   console.log(data);
-  
+
   const { dealTermComputed } = data;
   const cardRef = useRef<HTMLDivElement>(null);
   useLayoutEffect(() => {
@@ -29,7 +30,7 @@ export function AgendaCard({ data, className }: ICardProps) {
     setIsModalVisible(true)
   }, [])
 
-  return <Card ref={cardRef} title='公司名称' className={classNames(className, styles.wrapper)}>
+  return <Card ref={cardRef} title='公司名称' style={rootStyle} className={classNames(className, styles.wrapper)}>
     <p className={styles.title}>上会信息</p>
     <div className={styles.info}>
       <div>项目阶段: <span className={styles.text}>{data.meetingDecisionStatus}</span></div>
@@ -45,11 +46,11 @@ export function AgendaCard({ data, className }: ICardProps) {
     <p className={styles.title}>项目组成员</p>
     <div className={styles.info}>
       <div className={styles.team}>
-        投资团队: 
+        投资团队:
         <div className={styles.avatars}><Avatar className={styles.icon} size={30} icon={<UserOutlined />}/>Yiming</div>
       </div>
       <div className={styles.team}>
-        支持团队: 
+        支持团队:
         <div className={styles.avatars}><Avatar className={styles.icon} size={30} icon={<UserOutlined />}/>Yuhan</div>
       </div>
     </div>

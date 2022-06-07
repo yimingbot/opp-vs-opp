@@ -1,0 +1,11 @@
+html,body {
+  margin: 0;
+}
+.root {
+  height: 100vh;
+  overflow: scroll;
+  .canvas {
+    position: absolute;
+    pointer-events: none;
+  }
+}
