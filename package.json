@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "run-p dev:*",
     "dev:css": "typed-scss-modules src -w",
-    "dev:js": "vite --port 3001",
+    "dev:js": "vite --port 3001 --host",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
