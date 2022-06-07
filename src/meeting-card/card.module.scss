@@ -1,8 +1,10 @@
 .wrapper {
-  width: 50%;
+  width: 70%;
+  margin-bottom: 20px;
 }
 
 .title {
+  margin-bottom: 8px;
   color: #343b53;
   font-weight: 700;
 }
@@ -11,6 +13,7 @@
   margin-bottom: 20px;
   padding-bottom: 12px;
   border-bottom: 1px solid #e8eaf5;
+  line-height: 1.8;
   .text {
     @extend .title;
     margin-left: 4px;
@@ -33,10 +36,17 @@
   font-weight: 400;
   font-size: 14px;
   color: #536697;
-  .img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
+  .icon {
     margin-right: 4px;
   }
+}
+
+.summary {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30%;
+  padding: 12px;
+  padding-left: 0;
+  font-size: 18px;
 }

@@ -1,6 +1,6 @@
 
 declare module "typewriter-effect/dist/core" {
-  const TypeWriter: import('typewriter-effect');
+  const TypeWriter: typeof import('typewriter-effect').TypewriterClass;
 
   export default TypeWriter;
 }
