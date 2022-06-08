@@ -4,3 +4,5 @@ declare module "typewriter-effect/dist/core" {
 
   export default TypeWriter;
 }
+
+declare module "react-vertical-timeline-component";

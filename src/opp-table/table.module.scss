@@ -19,6 +19,10 @@ $green: #43a047;
   .ant-list-bordered {
     border: 1px solid $green;
   }
+
+  .right .ant-list-item {
+    justify-content: flex-end;
+  }
 }
 
 .tableContainer {

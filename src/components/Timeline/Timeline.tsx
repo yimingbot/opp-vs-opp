@@ -1,11 +1,11 @@
-import React, { FC } from 'react';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
+import { FC } from 'react';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 import classes from './index.module.scss'
 import { OppTable } from "../../opp-table/table";
 import SequoiaIcon from '../SequoiaIcon'
+import TypeWriter from 'typewriter-effect';
+import { SoundOutlined } from '@ant-design/icons';
 
 
 type TableData = Parameters<typeof OppTable>[0]['data'];
@@ -13,6 +13,12 @@ type Props = {
     leftData: TableData;
     rightData: TableData;
 }
+
+const defaultText = '阿巴阿巴，阿巴阿巴阿巴阿巴阿巴阿';
+const renderPlayWriter = (text: string) => <>
+    <SoundOutlined onClick={() => playText(text)} />
+    <TypeWriter options={getTypeWriterOptions(text)} />
+</>
 
 export const Timeline: FC<Props> = ({ leftData, rightData }) => {
     return <div className={classes.root}>
@@ -29,19 +35,14 @@ export const Timeline: FC<Props> = ({ leftData, rightData }) => {
                         rootMargin: '0px 0px 40px 0px'
                     }}
                 >
-                    <p>
-                        阿巴阿巴，阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴
-                    </p>
-
+                    {renderPlayWriter(defaultText)}
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                     icon={<SequoiaIcon />}
                     style={{ marginTop: -70 }}
                     iconClassName={classes.icon}
                 >
-                    <p>
-                        阿巴阿巴，阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴
-                    </p>
+                    {renderPlayWriter(defaultText)}
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                     icon={<SequoiaIcon />}
@@ -49,9 +50,7 @@ export const Timeline: FC<Props> = ({ leftData, rightData }) => {
                     style={{ marginTop: 224 }}
                     iconClassName={classes.icon}
                 >
-                    <p>
-                        阿巴阿巴，阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴
-                    </p>
+                    {renderPlayWriter(defaultText)}
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                     icon={<SequoiaIcon />}
@@ -59,12 +58,24 @@ export const Timeline: FC<Props> = ({ leftData, rightData }) => {
                     style={{ marginTop: 230 }}
                     iconClassName={classes.icon}
                 >
-                    <p>
-                        阿巴阿巴，阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴
-                    </p>
+                    {renderPlayWriter(defaultText)}
                 </VerticalTimelineElement>
             </VerticalTimeline>
-            <OppTable data={rightData} className={classes.agendaItem} />
+            <OppTable data={rightData} className={classes.agendaItem} isOnRight />
         </div>
     </div>
+}
+
+function playText(text: string) {
+    const msg = new SpeechSynthesisUtterance();
+    msg.text = text;
+    window.speechSynthesis.speak(msg);
+}
+
+function getTypeWriterOptions(text: string | string[]) {
+    return {
+        delay: 20,
+        autoStart: true,
+        strings: text,
+    }
 }
