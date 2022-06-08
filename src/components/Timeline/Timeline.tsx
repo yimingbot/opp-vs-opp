@@ -47,7 +47,7 @@ export const Timeline: FC<Props> = ({ data }) => {
             </VerticalTimelineElement>
         </VerticalTimeline>
         <div className={classes.agendaList}>
-            {data.agenda.map((v, index) => <AgendaCard key={index} data={v} className={classes.agendaItem} />)}
+            {data.rows.map((v, index) => <AgendaCard key={index} data={v} className={classes.agendaItem} />)}
         </div>
     </div>
 }
