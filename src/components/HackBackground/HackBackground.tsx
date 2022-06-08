@@ -47,7 +47,7 @@ export const HackBackground: FC<PropsWithChildren> = (props) => {
                     y: basePos + step * i,
                     speed: speed,
                     text: text,
-                    color: `rgba(${r},${g},${b}, ${1 - (i * .04)})`
+                    color: `rgba(${r},${g},${b}, ${0.4 - (i * .02)})`
                 }
                 col.push(code);
             })

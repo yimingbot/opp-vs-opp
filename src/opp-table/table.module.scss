@@ -1,0 +1,33 @@
+:global {
+  .ant-list-header, .ant-list-item, .ant-divider-inner-text {
+    color: green;
+  }
+  .ant-list-header {
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+  }
+  .ant-list-item {
+    font-size: 16px;
+  }
+  .ant-list-bordered .ant-list-item,
+  .ant-list-split .ant-list-header {
+    border-bottom: 1px solid green;
+  }
+  .ant-list-bordered {
+    border: 1px solid green;
+  }
+}
+
+.tableContainer {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+  width: 40%;
+  color: green;
+  margin-top: 12px;
+}
+
+.category {
+  margin-bottom: 4px;
+}

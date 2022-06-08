@@ -1,21 +1,20 @@
 import React, { FC } from 'react';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
+import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-import {MeetingData} from '../../mock-data';
-
 import classes from './index.module.scss'
-import {AgendaCard} from "../../meeting-card/card";
-
+import { OppTable } from "../../opp-table/table";
 import SequoiaIcon from '../SequoiaIcon'
 
 
+type TableData = Parameters<typeof OppTable>[0]['data'];
 type Props = {
-   data: MeetingData
+    leftData: TableData;
+    rightData: TableData;
 }
 
-export const Timeline: FC<Props> = ({ data }) => {
+export const Timeline: FC<Props> = ({ leftData, rightData }) => {
     return <div className={classes.root}>
         <VerticalTimeline
             className={classes.timeline}
@@ -23,7 +22,7 @@ export const Timeline: FC<Props> = ({ data }) => {
             lineColor={'#0f0'}
         >
             <VerticalTimelineElement
-                icon={<SequoiaIcon/>}
+                icon={<SequoiaIcon />}
                 date={'2002 - 2006'}
                 iconClassName={classes.icon}
                 intersectionObserverProps={{
@@ -38,7 +37,7 @@ export const Timeline: FC<Props> = ({ data }) => {
                 </p>
             </VerticalTimelineElement>
             <VerticalTimelineElement
-                icon={<SequoiaIcon/>}
+                icon={<SequoiaIcon />}
                 iconClassName={classes.icon}
             >
                 <p>
@@ -47,7 +46,8 @@ export const Timeline: FC<Props> = ({ data }) => {
             </VerticalTimelineElement>
         </VerticalTimeline>
         <div className={classes.agendaList}>
-            {data.rows.map((v, index) => <AgendaCard key={index} data={v} className={classes.agendaItem} />)}
+            <OppTable data={leftData} className={classes.agendaItem} />
+            <OppTable data={rightData} className={classes.agendaItem} />
         </div>
     </div>
 }
