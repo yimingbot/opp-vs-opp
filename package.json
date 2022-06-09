@@ -6,7 +6,7 @@
     "dev": "run-p dev:*",
     "dev:css": "typed-scss-modules src -w",
     "dev:js": "vite --port 3001 --host",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build --base=/opp-vs-opp/",
     "preview": "vite preview"
   },
   "dependencies": {
