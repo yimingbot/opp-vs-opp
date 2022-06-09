@@ -19,7 +19,7 @@ export const data = {
   },
   Risk: {
     负债: '200M',
-    诉讼量: 120,
+    诉讼量: '120',
     舆情: '较正向',
     利益关联方: '腾讯',
   },
@@ -31,7 +31,7 @@ export const data = {
   },
   'Sequoia Position': {
     进入轮次: 'B轮',
-    董事会席位: 1,
+    董事会席位: '1',
     股权占比: '4%',
     投资占比: '10%',
   },
@@ -63,7 +63,7 @@ export const data2 = {
   },
   Risk: {
     负债: '320M',
-    诉讼量: 181,
+    诉讼量: '181',
     舆情: '',
     利益关联方: '阿里巴巴',
   },
@@ -86,15 +86,11 @@ export const data2 = {
   },
 }
 
-export const diffColumns: string[] = ['股权分布', '司机数量', '市场份额', '开通城市', '股权占比', '投资占比', '董事会席位'];
-// Object.entries(data).forEach(([key, value]) => {
-//   Object.entries(value).forEach(([k, v]) => {
-//     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//     // @ts-ignore
-//     if (v !== data2[key][k]) {
-//       diffColumns.push(k);
-//     }
-//   })
-// })
-
-// console.log(diffColumns);
+export const diffColumns: string[] = [];
+Object.entries(data).forEach(([key, value]) => {
+  Object.entries(value).forEach(([k, v]) => {
+    if (/^\d/.test(v) && v !== (data2 as any)[key][k]) {
+      diffColumns.push(k);
+    }
+  })
+})

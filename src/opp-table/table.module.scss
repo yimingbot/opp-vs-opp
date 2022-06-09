@@ -1,4 +1,5 @@
 $green: #43a047;
+$light-green: #0f0;
 
 :global {
   .ant-list-header, .ant-list-item, .ant-divider-inner-text {
@@ -8,7 +9,7 @@ $green: #43a047;
     font-weight: 700;
     font-size: 18px;
     text-align: center;
-    color: #0f0;
+    color: $light-green;
   }
   .ant-list-item {
     font-size: 16px;
@@ -40,13 +41,14 @@ $green: #43a047;
 }
 
 .companyName {
-  margin-bottom: 4px;
+  margin-bottom: 10px;
   font-size: 20px;
   text-align: center;
+  color: $light-green;
 }
 
 .highlight {
-  color: #0f0;
+  color: $light-green;
 }
 
 .rate {

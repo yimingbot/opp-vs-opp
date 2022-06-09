@@ -11,6 +11,7 @@ specifiers:
   classnames: ^2.3.1
   eslint: ^8.17.0
   eslint-plugin-react: ^7.30.0
+  husky: ^8.0.1
   node-sass: ^7.0.1
   npm-run-all: ^4.1.5
   react: ^18.0.0
@@ -39,6 +40,7 @@ devDependencies:
   '@vitejs/plugin-react': registry.npmjs.org/@vitejs/plugin-react/1.3.2
   eslint: registry.npmjs.org/eslint/8.17.0
   eslint-plugin-react: registry.npmjs.org/eslint-plugin-react/7.30.0_eslint@8.17.0
+  husky: registry.npmjs.org/husky/8.0.1
   node-sass: registry.npmjs.org/node-sass/7.0.1
   npm-run-all: registry.npmjs.org/npm-run-all/4.1.5
   sass: registry.npmjs.org/sass/1.52.2
@@ -2727,6 +2729,14 @@ packages:
     version: 1.2.1
     dependencies:
       ms: registry.npmjs.org/ms/2.1.2
+    dev: true
+
+  registry.npmjs.org/husky/8.0.1:
+    resolution: {integrity: sha512-xs7/chUH/CKdOCs7Zy0Aev9e/dKOMZf3K1Az1nar3tzlv0jfqnYtu235bstsWTmXOR0EfINrPa97yy4Lz6RiKw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/husky/-/husky-8.0.1.tgz}
+    name: husky
+    version: 8.0.1
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   registry.npmjs.org/iconv-lite/0.6.3:

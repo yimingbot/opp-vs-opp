@@ -5,8 +5,7 @@ import { HackBackground } from "./components/HackBackground/HackBackground";
 import { Timeline } from "./components/Timeline/Timeline";
 import { data, data2 } from './data-source';
 
-// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLDivElement).render(
   <React.StrictMode>
     <HackBackground>
       <Timeline leftData={data} rightData={data2} />

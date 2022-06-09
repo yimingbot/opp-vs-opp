@@ -1,5 +1,4 @@
 import { List, Rate } from "antd";
-import { CSSProperties } from "react";
 import styles from './table.module.scss'
 import classNames from 'classnames';
 import { diffColumns } from "../data-source";
@@ -8,18 +7,18 @@ import { HeartOutlined } from "@ant-design/icons";
 interface ICardProps {
   data: Record<string, object>;
   className?: string;
-  style?: CSSProperties;
   isOnRight?: boolean;
   companyName: string;
 }
 
-export function OppTable({ data, className, style, isOnRight, companyName }: ICardProps) {
+export function OppTable({ data, className, isOnRight, companyName }: ICardProps) {
   const categories = Object.keys(data);
 
-  return <div className={classNames(className, styles.tableContainer)} style={style}>
+  return <div className={classNames(className, styles.tableContainer)}>
     <div className={styles.companyName}>{companyName}
-     <Rate className={styles.rate} allowClear character={<HeartOutlined />} allowHalf />
+      <Rate className={styles.rate} allowClear character={<HeartOutlined />} allowHalf/>
     </div>
+
     {categories.map(v =>
       <div key={v} className={classNames(!isOnRight && 'right')}>
         <List
