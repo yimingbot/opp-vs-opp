@@ -1,30 +1,36 @@
-import { List, Divider } from "antd";
+import { List, Rate } from "antd";
 import { CSSProperties } from "react";
 import styles from './table.module.scss'
 import classNames from 'classnames';
+import { diffColumns } from "../data-source";
+import { HeartOutlined } from "@ant-design/icons";
 
 interface ICardProps {
   data: Record<string, object>;
   className?: string;
   style?: CSSProperties;
   isOnRight?: boolean;
+  companyName: string;
 }
 
-export function OppTable({ data, className, style, isOnRight }: ICardProps) {
+export function OppTable({ data, className, style, isOnRight, companyName }: ICardProps) {
   const categories = Object.keys(data);
 
   return <div className={classNames(className, styles.tableContainer)} style={style}>
+    <div className={styles.companyName}>{companyName}
+     <Rate className={styles.rate} allowClear character={<HeartOutlined />} allowHalf />
+    </div>
     {categories.map(v =>
-      <div key={v} className={classNames(styles.category, !isOnRight && 'right')}>
+      <div key={v} className={classNames(!isOnRight && 'right')}>
         <List
           header={<div>{v}</div>}
           bordered
           dataSource={Object.entries(data[v])}
-          renderItem={item => (
-            <List.Item>{item.join(':')}</List.Item>
-          )}
+          renderItem={item => {
+            const shouldHighlight = diffColumns.indexOf(item[0]) !== -1;
+            return <List.Item className={shouldHighlight ? styles.highlight : ''}>{item.join(': ')}</List.Item>
+          }}
         />
-        <Divider orientation={isOnRight ? 'left' : 'right'}></Divider>
       </div>
     )}
   </div>

@@ -5,7 +5,7 @@
     .icon {
       width: 30px;
       height: 30px;
-      box-shadow: 0 0 0 4px #2e7d32, inset 0 2px 0 rgb(0 0 0 / 8%), 0 3px 0 4px rgb(0 0 0 / 5%);
+      box-shadow: 0 0 0 4px #2e7d32, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
     }
   }
 
@@ -30,7 +30,7 @@
     box-shadow: none;
   }
   .vertical-timeline-element-content-arrow {
-    border-right-color: #2e7d32;
+    border-right-color: transparent;
   }
   @media only screen and (min-width: 1170px) {
     .vertical-timeline--two-columns .vertical-timeline-element-icon {
@@ -39,3 +39,15 @@
   }
 }
 
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.sound {
+  cursor: pointer;
+  > span {
+    margin-right: 6px;
+  }
+}
