@@ -78,6 +78,7 @@ export const HackBackground: FC<PropsWithChildren> = (props) => {
 
     useEffect(() => {
         const canvasDom = canvasRef.current
+        canvasDom?.setAttribute('height', '' + document.body.clientHeight);
         if (canvasDom) {
             const ctx = canvasRef.current.getContext('2d');
             ctxRef.current = ctx
