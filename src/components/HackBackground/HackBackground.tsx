@@ -1,4 +1,4 @@
-import {FC, PropsWithChildren, useCallback, useEffect, useRef} from "react";
+import { FC, PropsWithChildren, useCallback, useEffect, useRef } from "react";
 import classes from './index.module.scss'
 
 const requestAnimationFrame = window.requestAnimationFrame
@@ -14,11 +14,15 @@ type CodeStruct = {
 }
 
 const step = 35;
-const { width, height }: Size = {
+// eslint-disable-next-line prefer-const
+let { width, height }: Size = {
     width: document.body.clientWidth,
     height: document.body.clientHeight
 };
 const colLen = Math.floor(width / 100);
+if (height < 50) {
+    height = screen.height;
+}
 
 export const HackBackground: FC<PropsWithChildren> = (props) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -32,16 +36,16 @@ export const HackBackground: FC<PropsWithChildren> = (props) => {
             //基础位置，为了列与列之间产生错位
             const basePos = Math.floor(Math.random() * height / 2);
             //随机速度 3~13之间
-            const speed =  Math.floor(Math.random() * 3) + 0.5;
+            const speed = Math.floor(Math.random() * 3) + 0.5;
             //每组的x轴位置随机产生
-            const colX =  Math.floor(Math.random() * n * 80)  +  n * 80;
+            const colX = Math.floor(Math.random() * n * 80) + n * 80;
 
             //绿色随机
             const r = 0;
             const g = 255;
             const b = 0;
 
-            'sequoia capital'.toLocaleUpperCase().split('').forEach((text, i) =>{
+            'sequoia capital'.toLocaleUpperCase().split('').forEach((text, i) => {
                 const code = {
                     x: colX,
                     y: basePos + step * i,
@@ -78,7 +82,6 @@ export const HackBackground: FC<PropsWithChildren> = (props) => {
 
     useEffect(() => {
         const canvasDom = canvasRef.current
-        canvasDom?.setAttribute('height', '' + document.body.clientHeight);
         if (canvasDom) {
             const ctx = canvasRef.current.getContext('2d');
             ctxRef.current = ctx
@@ -92,6 +95,6 @@ export const HackBackground: FC<PropsWithChildren> = (props) => {
 
     return <div className={classes.root}>
         <canvas className={classes.canvas} ref={canvasRef} id={'bg'} width={width} height={height}></canvas>
-        { props.children }
+        {props.children}
     </div>
 }
