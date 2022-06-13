@@ -9,11 +9,10 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLDivElement).render(<d
     <BasicTable />
 
     <div style={{ width: '600px', marginLeft: '200px' }}>
-      <h2>Market - MAU</h2>
+      <h2 style={{ margin: 0, marginTop: 10 }}>Market - MAU</h2>
       <BasicChart />
 
       <Chart />
-
 
       <div style={{ cursor: 'pointer' }} onClick={() => readText(demoSumText)}>
         <h2>Text Summary</h2>
