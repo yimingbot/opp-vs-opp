@@ -108,7 +108,7 @@ function makeOption(type: string, symbol?: string) {
             symbol: symbol || pathSymbols.people
           },
           {
-            value: 800,
+            value: 600,
             symbol: symbol || pathSymbols.amount
           },
         ]

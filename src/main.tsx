@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLDivElement).render(<d
 
 
       <div style={{ cursor: 'pointer' }} onClick={() => readText(demoSumText)}>
-        <h2>Summary</h2>
+        <h2>Text Summary</h2>
         <svg style={{
           display: 'inline-block',
           verticalAlign: 'middle',
