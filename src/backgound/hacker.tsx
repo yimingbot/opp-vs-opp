@@ -1,5 +1,5 @@
 import { FC, PropsWithChildren, useCallback, useEffect, useRef } from "react";
-import classes from './index.module.scss'
+import classes from './hacker.module.scss'
 
 const requestAnimationFrame = window.requestAnimationFrame
 
